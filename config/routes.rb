@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :raw_data
   root :to => "raw_data#index"
   # The priority is based upon order of creation: first created -> highest priority.

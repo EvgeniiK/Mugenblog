@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<head>
 <h1>MugenBlog</h1>
 <h6>just to let you know</h6>
+<%= link_to 'sign_in', user_session_path %>
+<%= link_to 'sign_out', destroy_user_session_path, method: :delete %>
+<%= link_to 'register', new_user_registration_path %>
 <br>
+</head>
+<body>
 <h2>Some unsorted information</h2>
 
 <table>
@@ -36,3 +41,5 @@
 <h2>New information</h2>
 
 <%= render 'form' %>
+</body>
+<footer>капинотрайт <%= Time.now.year %></footer>

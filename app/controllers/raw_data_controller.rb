@@ -1,5 +1,6 @@
 class RawDataController < ApplicationController
   before_action :set_raw_datum, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :create]
 
   # GET /raw_data
   # GET /raw_data.json
