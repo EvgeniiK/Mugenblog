@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>MugenBlog</h1>
+<h6>just to let you know</h6>
+<br>
+<h2>Some unsorted information</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Theme</th>
+      <th>Command</th>
+      <th>Description</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @raw_data.each do |raw_datum| %>
+      <tr>
+        <td><%= raw_datum.theme %></td>
+        <td><%= raw_datum.command %></td>
+        <td><%= raw_datum.description %></td>
+        <td><%= raw_datum.link %></td>
+        <td><%= link_to 'Show', raw_datum %></td>
+        <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
+        <td><%= link_to 'Destroy', raw_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>New information</h2>
+
+<%= render 'form' %>

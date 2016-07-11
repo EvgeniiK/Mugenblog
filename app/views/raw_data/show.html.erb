@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Theme:</strong>
+  <%= @raw_datum.theme %>
+</p>
+
+<p>
+  <strong>Command:</strong>
+  <%= @raw_datum.command %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @raw_datum.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @raw_datum.link %>
+</p>
+
+<%= link_to 'Edit', edit_raw_datum_path(@raw_datum) %> |
+<%= link_to 'Back', raw_data_path %>
