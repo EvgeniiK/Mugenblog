@@ -27,7 +27,7 @@
         <td><%= raw_datum.theme %></td>
         <td><%= raw_datum.command %></td>
         <td><%= raw_datum.description %></td>
-        <td><%= raw_datum.link %></td>
+        <td><%= link_to raw_datum.link, raw_datum.link %></td>
         <td><%= link_to 'Show', raw_datum %></td>
         <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
         <td><%= link_to 'Destroy', raw_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
