@@ -42,6 +42,7 @@ group :development do
   gem 'pry-nav'
   gem 'better_errors'
   gem 'capistrano'
+  gem 'rvm1-capistrano3', '1.2.6', require: false
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'

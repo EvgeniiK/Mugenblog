@@ -2,7 +2,9 @@ set :port, 22
 set :user, 'mugen'
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :rvm_ruby_version, '2.3.1'
+set :rvm1_ruby_version, 'ruby-2.3.1@mugenblog_4.2.6'
+
+
 set :branch, 'master'
 set :application, 'mugenblog'
 set :assets_roles, [:web, :app]
@@ -23,3 +25,20 @@ set :ssh_options, {
 
 set :rails_env, :production
 set :conditionally_migrate, true
+
+
+#  set :application, 'outsource_people2015'
+# set :deploy_to, '/home/outsource_people/outsource_people_app'
+
+# # RVM-specific config
+# set :rails_env, :production
+# set :branch, 'master'
+
+# set :rvm1_ruby_version, 'ruby-2.1.2@outsource'
+
+# server 'vm1.sloboda-studio.com',
+#        user: 'outsource_people',
+#        roles: %w(web app db),
+#        ssh_options: {
+#          port: 2222
+#        }
