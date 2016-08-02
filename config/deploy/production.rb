@@ -5,6 +5,7 @@ set :use_sudo, false
 set :rvm_ruby_version, '2.3.1'
 set :branch, 'master'
 set :application, 'mugenblog'
+set :assets_roles, [:web, :app]
 
 server '46.101.211.90',
   roles: [:web, :app, :db],

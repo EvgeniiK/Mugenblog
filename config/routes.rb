@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'devise_custom/registrations' }
   resources :raw_data
   root :to => "raw_data#index"
   # The priority is based upon order of creation: first created -> highest priority.

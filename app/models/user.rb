@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # TODO
-  #validates :username, presence: true
+  validates :username, presence: true
   has_many :raw_datum
 end
