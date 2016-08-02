@@ -17,22 +17,25 @@
       <th>Command</th>
       <th>Description</th>
       <th>Link</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @raw_data.each do |raw_datum| %>
-      <tr>
-        <td><%= raw_datum.theme %></td>
-        <td><%= raw_datum.command %></td>
-        <td><%= raw_datum.description %></td>
-        <td><%= link_to raw_datum.link, raw_datum.link %></td>
-        <td><%= link_to 'Show', raw_datum %></td>
-        <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
-        <td><%= link_to 'Destroy', raw_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <div style="width: 1000px">
+      <% @raw_data.each do |raw_datum| %>
+        <tr>
+          <td><%= raw_datum.theme %></td>
+          <td><%= raw_datum.command %></td>
+          <td><%= raw_datum.description %></td>
+          <td><%= link_to raw_datum.link, raw_datum.link %></td>
+          <td><%= raw_datum.try(:user).try(:email) || 'anon' %></td>
+          <td><%= link_to 'Show', raw_datum %></td>
+          <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
+        </tr>
+      <% end %>
+    </div>
   </tbody>
 </table>
 

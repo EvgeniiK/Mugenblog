@@ -1,5 +1,5 @@
 class RawDataController < ApplicationController
-  before_action :set_raw_datum, only: [:show, :edit, :update, :destroy]
+  before_action :set_raw_datum, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:index, :create]
 
   # GET /raw_data
@@ -76,6 +76,6 @@ class RawDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def raw_datum_params
-      params.require(:raw_datum).permit(:theme, :command, :description, :link)
+      params.require(:raw_datum).permit(:theme, :command, :description, :link).merge(user: current_user)
     end
 end
