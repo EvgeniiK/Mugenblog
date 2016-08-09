@@ -29,15 +29,15 @@
 
   <tbody>
     <div style="width: 1000px">
-      <% @raw_data.each do |raw_datum| %>
+      <% @hints.each do |hint| %>
         <tr>
-          <td><%= raw_datum.theme %></td>
-          <td><%= raw_datum.command %></td>
-          <td><%= raw_datum.description %></td>
-          <td><%= link_to raw_datum.link, raw_datum.link %></td>
-          <td><%= raw_datum.try(:user).try(:username) || 'anon' %></td>
-          <td><%= link_to 'Show', raw_datum %></td>
-          <td><%= link_to 'Edit', edit_raw_datum_path(raw_datum) %></td>
+          <td><%= hint.theme %></td>
+          <td><%= hint.command %></td>
+          <td><%= hint.description %></td>
+          <td><%= link_to hint.link, hint.link %></td>
+          <td><%= hint.try(:user).try(:username) || 'anon' %></td>
+          <td><%= link_to 'Show', hint %></td>
+          <td><%= link_to 'Edit', edit_hint_path(hint) %></td>
         </tr>
       <% end %>
     </div>

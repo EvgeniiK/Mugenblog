@@ -1,10 +1,10 @@
-<%= form_for(@raw_datum) do |f| %>
-  <% if @raw_datum.errors.any? %>
+<%= form_for(@hint) do |f| %>
+  <% if @hint.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@raw_datum.errors.count, "error") %> prohibited this raw_datum from being saved:</h2>
+      <h2><%= pluralize(@hint.errors.count, "error") %> prohibited this hint from being saved:</h2>
 
       <ul>
-      <% @raw_datum.errors.full_messages.each do |message| %>
+      <% @hint.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

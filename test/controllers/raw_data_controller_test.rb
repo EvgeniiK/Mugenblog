@@ -2,13 +2,13 @@ require 'test_helper'
 
 class RawDataControllerTest < ActionController::TestCase
   setup do
-    @raw_datum = raw_data(:one)
+    @hint = hints(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:raw_data)
+    assert_not_nil assigns(:hints)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class RawDataControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create raw_datum" do
+  test "should create hint" do
     assert_difference('RawDatum.count') do
-      post :create, raw_datum: { command: @raw_datum.command, description: @raw_datum.description, link: @raw_datum.link, theme: @raw_datum.theme }
+      post :create, hint: { command: @hint.command, description: @hint.description, link: @hint.link, theme: @hint.theme }
     end
 
-    assert_redirected_to raw_datum_path(assigns(:raw_datum))
+    assert_redirected_to hint_path(assigns(:hint))
   end
 
-  test "should show raw_datum" do
-    get :show, id: @raw_datum
+  test "should show hint" do
+    get :show, id: @hint
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @raw_datum
+    get :edit, id: @hint
     assert_response :success
   end
 
-  test "should update raw_datum" do
-    patch :update, id: @raw_datum, raw_datum: { command: @raw_datum.command, description: @raw_datum.description, link: @raw_datum.link, theme: @raw_datum.theme }
-    assert_redirected_to raw_datum_path(assigns(:raw_datum))
+  test "should update hint" do
+    patch :update, id: @hint, hint: { command: @hint.command, description: @hint.description, link: @hint.link, theme: @hint.theme }
+    assert_redirected_to hint_path(assigns(:hint))
   end
 
-  test "should destroy raw_datum" do
+  test "should destroy hint" do
     assert_difference('RawDatum.count', -1) do
-      delete :destroy, id: @raw_datum
+      delete :destroy, id: @hint
     end
 
-    assert_redirected_to raw_data_path
+    assert_redirected_to hints_path
   end
 end

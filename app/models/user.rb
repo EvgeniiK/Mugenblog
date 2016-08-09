@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # TODO
   validates :username, presence: true
-  has_many :raw_datum
+  has_many :hint
 end
