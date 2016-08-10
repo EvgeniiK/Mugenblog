@@ -5,6 +5,7 @@ gem 'rails', '4.2.6'
 gem 'pg'
 gem 'unicorn'
 gem 'devise'
+gem 'cancancan'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

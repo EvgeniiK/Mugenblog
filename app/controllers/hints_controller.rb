@@ -1,6 +1,7 @@
 class HintsController < ApplicationController
-  before_action :set_hint, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:index, :create]
+  load_and_authorize_resource
+  before_action :set_hint, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :create, :show]
 
   # GET /hints
   # GET /hints.json
@@ -31,7 +32,7 @@ class HintsController < ApplicationController
     respond_to do |format|
       if @hint.save
         format.html { redirect_to hints_url,
-                      notice: 'Raw datum was successfully created.' }
+                      notice: 'Hint was successfully created.' }
         format.json { render :show, status: :created, location: @hint }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class HintsController < ApplicationController
     respond_to do |format|
       if @hint.update(hint_params)
         format.html { redirect_to @hint,
-                      notice: 'Raw datum was successfully updated.' }
+                      notice: 'Hint was successfully updated.' }
         format.json { render :show, status: :ok, location: @hint }
       else
         format.html { render :edit }
@@ -63,7 +64,7 @@ class HintsController < ApplicationController
     @hint.destroy
     respond_to do |format|
       format.html { redirect_to hints_url,
-                    notice: 'Raw datum was successfully destroyed.' }
+                    notice: 'Hint was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
