@@ -6,6 +6,9 @@ gem 'pg'
 gem 'unicorn'
 gem 'devise'
 gem 'cancancan'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'capistrano-rails-console'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

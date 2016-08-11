@@ -1,57 +1,41 @@
-<p id="notice"><%= notice %></p>
-<head>
-<h1>MugenBlog</h1>
-<% if current_user.present? %>
-  <h3><%= "Dont forget your username: #{current_user.username}" %></h3>
-  <h6>just to let you know</h6>
-  <%= link_to 'sign_out', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'sign_in', user_session_path %>
-  <%= link_to 'register', new_user_registration_path %>
-<% end %>
+<%- model_class = Hint -%>
 
-<br>
-</head>
-<body>
-<h2>Hints</h2>
-
-<table>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Theme</th>
-      <th>Command</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:theme) %></th>
+      <th><%= model_class.human_attribute_name(:command) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:link) %></th>
+      <th><%= model_class.human_attribute_name(:user) %></th>
+      <% if current_user.present? %>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
     </tr>
   </thead>
-
   <tbody>
-    <div style="width: 1000px">
-      <% @hints.each do |hint| %>
-        <tr>
-          <td><%= hint.theme %></td>
-          <td><%= hint.command %></td>
-          <td><%= hint.description %></td>
-          <td><%= link_to hint.link, hint.link %></td>
-          <td><%= hint.try(:user).try(:username) || 'anon' %></td>
-          <td><%= link_to 'Show', hint %></td>
-          <% if current_user.present? %>
-            <td><%= link_to 'Edit', edit_hint_path(hint) %></td>
-            <td><%= link_to 'Destroy', hint, method: :delete %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </div>
+    <% @hints.each do |hint| %>
+      <tr>
+        <td><%= hint.theme %></td>
+        <td><%= hint.command %></td>
+        <td><%= hint.description %></td>
+        <td><%= link_to cut_link(hint.link), hint.link %></td>
+        <td><%= hint.user.username if hint.user.present? %></td>
+        <% if current_user.present? %>
+          <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_hint_path(hint), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          hint_path(hint),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-<% if current_user.present? %>
-  <br>
-
-  <h2>Add new hint</h2>
-
-  <%= render 'form' %>
- <% end %>
-</body>
-<footer>капинотрайт <%= Time.now.year %></footer>
