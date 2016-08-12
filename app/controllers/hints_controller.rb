@@ -22,6 +22,10 @@ class HintsController < ApplicationController
 
   # GET /hints/1/edit
   def edit
+    binding.pry
+    render json: {
+      status: ok,
+      params: params }
   end
 
   # POST /hints

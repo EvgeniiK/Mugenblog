@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <% @hints.each do |hint| %>
-      <tr>
+      <tr id="idSortButton" hint-id="<%= hint %>"  >
         <td><%= hint.theme %></td>
         <td><%= hint.command %></td>
         <td><%= hint.description %></td>
@@ -37,5 +37,8 @@
         <% end %>
       </tr>
     <% end %>
+
+<%= render 'modal' %>
+
   </tbody>
 </table>

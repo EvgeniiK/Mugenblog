@@ -15,3 +15,16 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+
+  $(idSortButton).click(function(){
+    $.post("/hints/modal", {hint_id: 'hint-id'}, function (data) {
+    debugger;
+
+      $('#projectInfo').empty();
+      $('#projectInfo').append(data['project_plan']);
+      $('#projectStatisticPopup').modal('show');
+    });
+    debugger;
+    })
+})
