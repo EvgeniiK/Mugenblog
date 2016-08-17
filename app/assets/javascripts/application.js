@@ -18,13 +18,13 @@
 $(document).ready(function() {
 
   $(idSortButton).click(function(){
-    $.post("/hints/modal", {hint_id: 'hint-id'}, function (data) {
+    $.post("/hints/modal", function (data) {
     debugger;
 
       $('#projectInfo').empty();
       $('#projectInfo').append(data['project_plan']);
+    debugger;
       $('#projectStatisticPopup').modal('show');
     });
-    debugger;
     })
 })

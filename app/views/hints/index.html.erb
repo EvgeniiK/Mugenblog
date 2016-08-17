@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <% @hints.each do |hint| %>
-      <tr id="idSortButton" hint-id="<%= hint %>"  >
+      <tr class="idSortButton" type="button" data-toggle="modal" data-target="#myModal" data-url="<%= edit_hint_path(hint) %>" >
         <td><%= hint.theme %></td>
         <td><%= hint.command %></td>
         <td><%= hint.description %></td>
@@ -42,3 +42,7 @@
 
   </tbody>
 </table>
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
