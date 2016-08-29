@@ -18,7 +18,9 @@
   </thead>
   <tbody>
     <% @hints.each do |hint| %>
-      <tr class="idSortButton" type="button" data-toggle="modal" data-target="#myModal" data-url="<%= edit_hint_path(hint) %>" >
+      <a href="#game" aria-controls="game" role="tab" data-toggle="tab" >
+        <%= link_to '', edit_hint_path(hint)%>
+      <tr>
         <td><%= hint.theme %></td>
         <td><%= hint.command %></td>
         <td><%= hint.description %></td>
@@ -36,6 +38,7 @@
           </td>
         <% end %>
       </tr>
+      </a>
     <% end %>
 
 <%= render 'modal' %>

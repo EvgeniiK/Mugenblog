@@ -22,10 +22,7 @@ class HintsController < ApplicationController
 
   # GET /hints/1/edit
   def edit
-    binding.pry
-    render json: {
-      status: ok,
-      params: params }
+    #render json: { report: render_to_string("_form", layout: false, status: 200) }
   end
 
   # POST /hints
