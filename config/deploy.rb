@@ -12,15 +12,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
                                                'public/system', 'public/assets')
 
 after 'deploy:publishing', 'deploy:restart'
+  # after :finishing, 'unicorn:start'
 
 namespace :deploy do
-  after :finishing, 'unicorn:stop'
-  after :finishing, 'deploy:cleanup'
+  # after :finishing, 'unicorn:stop'
+  # after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:assets:precompile'
   task :restart do
     invoke 'unicorn:reload'
   end
 end
+
 
 # lock '3.5.0'
 
@@ -73,6 +75,5 @@ end
 
 #   after :finishing, 'update_cron'
 
-#   after :finishing, 'unicorn:start'
 
 # end
