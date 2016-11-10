@@ -1,7 +1,7 @@
-root = "/home/mugen/mugenblog/current"
+root = "/home/ubuntu/mugenblog/current"
 working_directory root
 
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "/home/ubuntu/mugenblog/shared/tmp/pids/unicorn.pid"
 
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
@@ -10,7 +10,7 @@ worker_processes 1
 timeout 30
 preload_app true
 
-listen '/home/mugen/mugenblog/shared/tmp/sockets/unicorn.sock', backlog: 64
+listen '/home/ubuntu/mugenblog/shared/tmp/sockets/unicorn.sock', backlog: 64
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
