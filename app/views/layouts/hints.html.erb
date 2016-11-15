@@ -62,12 +62,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
+          <%= bootstrap_flash %>
           <div class="well sidebar-nav">
-            <% if current_user.present? %>
-              <h2>Add new hint</h2>
-              <%= render 'form' %>
-            <% end %>
-            <%= bootstrap_flash %>
           </div>
         </div>
         <div class="col-lg-3">

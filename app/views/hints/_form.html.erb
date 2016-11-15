@@ -1,53 +1,5 @@
-<%= form_for @hint, :html => { :class => "form-horizontal hint" } do |f| %>
-
-  <% if @hint.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@hint.errors.count, "error") %> prohibited this hint from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @hint.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :theme, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :theme, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:theme) %>
+<div id='modal-form' class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div id='modal'></div>
   </div>
-  <div class="form-group">
-    <%= f.label :command, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :command, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:command) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_area :description, :class => 'form-control', :style => 'height: 120px;' %>
-    </div>
-    <%=f.error_span(:description) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :link, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :link, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:link) %>
-  </div>
-
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-    </div>
-  </div>
-
-<% end %>
+</div>

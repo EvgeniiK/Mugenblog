@@ -1,7 +1,7 @@
 root = "/home/ubuntu/mugenblog/current"
 working_directory root
 
-pid "/home/ubuntu/mugenblog/shared/tmp/pids/unicorn.pid"
+pid "#{root}/tmp/pids/unicorn.pid"
 
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"

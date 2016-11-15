@@ -1,51 +1,28 @@
-<%- model_class = Hint -%>
-
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1> Hints</h1>
+  <% if current_user.present? %>
+    <button type="button" class="btn btn-primary hint-modal" data-link='<%= new_hint_path %>'>Create new Hint</button>
+  <% end %>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:theme) %></th>
-      <th><%= model_class.human_attribute_name(:command) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:link) %></th>
-      <th><%= model_class.human_attribute_name(:user) %></th>
-      <% if current_user.present? %>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% %w(Theme Command Description Link User).each do |name| %>
+        <th><%= name %></th>
       <% end %>
     </tr>
   </thead>
   <tbody>
     <% @hints.each do |hint| %>
-      <a href="#game" aria-controls="game" role="tab" data-toggle="tab" >
-        <%= link_to '', edit_hint_path(hint)%>
-      <tr>
+      <tr <%= "class=hint-modal" if current_user.present? && current_user == hint.try(:user) %> data-link='<%= edit_hint_path(hint) %>'>
         <td><%= hint.theme %></td>
         <td><%= hint.command %></td>
         <td><%= hint.description %></td>
         <td><%= link_to cut_link(hint.link), hint.link %></td>
         <td><%= hint.user.username if hint.user.present? %></td>
-        <% if current_user.present? %>
-          <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_hint_path(hint), :class => 'btn btn-default btn-xs' %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                          hint_path(hint),
-                          :method => :delete,
-                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-xs btn-danger' %>
-          </td>
-        <% end %>
       </tr>
-      </a>
     <% end %>
-
-<%= render 'modal' %>
-
   </tbody>
 </table>
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
+<%= render 'form' %>
