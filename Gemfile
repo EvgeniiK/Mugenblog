@@ -9,6 +9,7 @@ gem 'cancancan'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'capistrano-rails-console'
+gem 'quiet_assets', '~> 1.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

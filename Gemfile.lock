@@ -129,6 +129,8 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -237,6 +239,7 @@ DEPENDENCIES
   pry
   pry-nav
   pry-rails
+  quiet_assets (~> 1.1)
   rails (= 4.2.6)
   rvm1-capistrano3 (= 1.2.6)
   sass-rails (~> 5.0)

@@ -15,12 +15,13 @@ after 'deploy:publishing', 'deploy:restart'
   # after :finishing, 'unicorn:start'
 
 namespace :deploy do
-  # after :finishing, 'unicorn:stop'
+  before :finishing, 'unicorn:stop'
+  after :finishing, 'unicorn:start'
   # after :finishing, 'deploy:cleanup'
   after :finishing, 'deploy:assets:precompile'
-  task :restart do
-    invoke 'unicorn:reload'
-  end
+  # task :restart do
+  #   invoke 'unicorn:reload'
+  # end
 end
 
 

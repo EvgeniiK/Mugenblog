@@ -7,7 +7,6 @@ class HintsController < ApplicationController
   # GET /hints.json
   def index
     @hints = Hint.all
-    new
   end
 
   # GET /hints/1
@@ -17,11 +16,22 @@ class HintsController < ApplicationController
 
   # GET /hints/new
   def new
-    @hint = Hint.new
+    render json: {
+    hint: render_to_string('hints/_modal',
+                           layout: false,
+                           status: 200,
+                           locals: {hint: Hint.new})
+    }
   end
 
   # GET /hints/1/edit
   def edit
+    render json: {
+        hint: render_to_string('hints/_modal',
+                               layout: false,
+                               status: 200,
+                               locals: {hint: params[:id]})
+    }
     #render json: { report: render_to_string("_form", layout: false, status: 200) }
   end
 
@@ -48,9 +58,8 @@ class HintsController < ApplicationController
   def update
     respond_to do |format|
       if @hint.update(hint_params)
-        format.html { redirect_to @hint,
+        format.html { redirect_to :root,
                       notice: 'Hint was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hint }
       else
         format.html { render :edit }
         format.json { render json: @hint.errors,
