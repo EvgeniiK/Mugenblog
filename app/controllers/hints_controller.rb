@@ -6,7 +6,7 @@ class HintsController < ApplicationController
   # GET /hints
   # GET /hints.json
   def index
-    @hints = Hint.all
+    @hints = Hint.all.order(created_at: :desc)
   end
 
   # GET /hints/1
