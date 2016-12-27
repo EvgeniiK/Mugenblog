@@ -20,3 +20,17 @@
 a {
   cursor: pointer;
 }
+
+.right {
+  text-align: right;
+}
+
+table {
+width:100%;
+}
+
+table tr .word-wrap {
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+}

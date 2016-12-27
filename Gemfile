@@ -10,6 +10,8 @@ gem 'twitter-bootstrap-rails'
 gem 'capistrano-rails-console'
 gem 'quiet_assets', '~> 1.1'
 gem 'kaminari'
+
+gem 'jquery-datatables-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
