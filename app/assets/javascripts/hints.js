@@ -8,4 +8,21 @@ $(document).ready(function() {
           $('#modal-form').modal();
     })
   })
+
+  $('#main-table').DataTable({
+    columnDefs: [{
+        orderable: false,
+        searchable: false,
+        targets: -1
+    },{
+        orderable: false,
+        searchable: false,
+        targets: -2
+      },{
+        orderable: false,
+        searchable: false,
+        targets: -3
+      }]
+  });
+
 })
