@@ -47,12 +47,10 @@
         </button>
         <a class="navbar-brand" href="#">Mugenblog</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" style="float: right;">
             <% if current_user.present? %>
               <li><%= link_to 'sign_out', destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to 'sign_in', user_session_path %></li>
-              <li><%= link_to 'register', new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>
@@ -62,9 +60,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <div class="well sidebar-nav">
+          <div class="well sidebar-nav" style="text-align: center;">
+            <p style="font-size: medium;">Welcome to Mugenblog! Here you can gain some knolege about web dev on Ruby on Rails.</p>
           </div>
+          <%= bootstrap_flash %>
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
