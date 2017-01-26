@@ -22,7 +22,8 @@ $(document).ready(function() {
         orderable: false,
         searchable: false,
         targets: -3
-      }]
+      }],
+    iDisplayLength: 50
   });
 
 })
