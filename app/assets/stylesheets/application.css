@@ -13,5 +13,7 @@
  *= require_tree .
  *= require dataTables/bootstrap/2/jquery.dataTables.bootstrap
  *= bootstrap.min.css
+ *= require select2
+ *= require select2-bootstrap
  *= require_self
  */

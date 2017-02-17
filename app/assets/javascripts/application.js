@@ -15,4 +15,6 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require twitter/bootstrap
+//= require select2
+//= require select2-full
 //= require_tree .

@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+%w(
+  ruby
+  rails
+  postgres
+  db
+  css
+  js
+  gem
+  ubuntu
+  linux
+  HTTP
+  HTML
+).each { |tag| Tag.create(name: tag) }
