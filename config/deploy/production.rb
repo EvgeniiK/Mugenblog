@@ -1,12 +1,8 @@
 set :port, 22
 set :user, 'ubuntu'
-set :deploy_via, :remote_cache
-set :use_sudo, false
-set :rvm1_ruby_version, 'ruby-2.3.1@mugenblog_4.2.6'
 
 
 set :branch, 'master'
-set :application, 'mugenblog'
 set :assets_roles, [:web, :app]
 
 server '52.57.30.167',
@@ -18,13 +14,10 @@ server '52.57.30.167',
 set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"
 
 set :ssh_options, {
-  forward_agent: true,
-  auth_methods: %w(publickey),
-  user: 'ubuntu',
+  forward_agent: true
 }
 
 set :rails_env, :production
-set :conditionally_migrate, true
 
 
 #  set :application, 'outsource_people2015'
