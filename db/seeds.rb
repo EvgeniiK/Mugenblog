@@ -18,4 +18,4 @@
   linux
   HTTP
   HTML
-).each { |tag| Tag.create(name: tag) }
+).each { |tag| Tag.first_or_create(name: tag) }

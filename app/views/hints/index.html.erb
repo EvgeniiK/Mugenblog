@@ -19,7 +19,7 @@
         <td><%= hint.tags.pluck(:name).map(&:inspect).join(', ') %></td>
         <td><%= hint.command %></td>
         <td class='word-wrap'><%= hint.description %></td>
-        <td><%= link_to cut_link(hint.link), hint.link %></td>
+        <td><%= link_to cut_link(hint.link), hint.link, target: 'blank' %></td>
         <td><%= hint.user.username if hint.user.present? %></td>
         <td class='right'>
           <% if current_user.present? && current_user == hint.try(:user) %>
