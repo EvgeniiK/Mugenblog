@@ -4,7 +4,12 @@ $(document).ready(function() {
 
   $(".hint-modal").click(function (data){
     $.get($(this).data('link'), function(data) {
-          $('#modal').html(data.hint)
+          $('#modal').html(data.hint).ready(function (){
+            $( "#hint_tag_ids" ).select2({
+              theme: "bootstrap",
+              minimumResultsForSearch: 1
+            });
+          });
           $('#modal-form').modal();
     })
   })

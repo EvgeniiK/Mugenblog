@@ -20,4 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  greeting: Welcome to Mugenblog! Here you can gain some knowlege about web dev on Ruby on Rails.

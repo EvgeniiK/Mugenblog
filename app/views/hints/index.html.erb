@@ -7,7 +7,7 @@
 <table class="table table-striped table-responsive" id='main-table'>
   <thead>
     <tr>
-      <% %w(Theme Command Description Link User).each do |name| %>
+      <% %w(Tags Command Description Link User).each do |name| %>
         <th><%= name %></th>
       <% end %>
       <th></th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @hints.each do |hint| %>
       <tr>
-        <td><%= hint.theme %></td>
+        <td><%= hint.tags.pluck(:name).map(&:inspect).join(', ') %></td>
         <td><%= hint.command %></td>
         <td class='word-wrap'><%= hint.description %></td>
         <td><%= link_to cut_link(hint.link), hint.link %></td>

@@ -6,12 +6,10 @@ gem 'pg'
 gem 'unicorn'
 gem 'devise'
 gem 'cancancan'
-gem 'twitter-bootstrap-rails'
 gem 'capistrano-rails-console'
 gem 'quiet_assets', '~> 1.1'
 gem 'kaminari'
 
-gem 'jquery-datatables-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,14 +23,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# For front-end
+gem "select2-rails"
+gem 'twitter-bootstrap-rails'
+gem 'jquery-datatables-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

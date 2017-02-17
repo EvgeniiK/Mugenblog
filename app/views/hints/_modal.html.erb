@@ -21,9 +21,9 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :theme, :class => 'control-label col-lg-2' %>
+        <%= f.label :tags, :class => 'control-label col-lg-2' %>
         <div class="col-lg-10">
-          <%= f.text_field :theme, :class => 'form-control' %>
+          <%= f.collection_select(:tag_ids, Tag.all, :id, :name, {}, {class: 'form-control', multiple: 'multiple',  style: "width: 100%"}) %>
         </div>
         <%=f.error_span(:theme) %>
       </div>
