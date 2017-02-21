@@ -17,17 +17,16 @@ class HintsController < ApplicationController
   # GET /hints/new
   def new
     render json: {
-    hint: render_to_string('hints/_modal',
+    hint: render_to_string('hints/_form',
                            layout: false,
-                           status: 200,
-                           locals: {hint: Hint.new})
+                           status: 200)
     }
   end
 
   # GET /hints/1/edit
   def edit
     render json: {
-        hint: render_to_string('hints/_modal',
+        hint: render_to_string('hints/_form',
                                layout: false,
                                status: 200,
                                locals: {hint: params[:id]})

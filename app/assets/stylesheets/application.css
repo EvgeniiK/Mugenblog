@@ -15,5 +15,8 @@
  *= bootstrap.min.css
  *= require select2
  *= require select2-bootstrap
+ *= require trix
+ *= require syntax-highlighter-rails/shCore
+ *= require syntax-highlighter-rails/shThemeDefault
  *= require_self
  */

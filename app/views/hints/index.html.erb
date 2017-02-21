@@ -7,8 +7,8 @@
 <table class="table table-striped table-responsive" id='main-table'>
   <thead>
     <tr>
-      <% %w(Tags Command Description Link User).each do |name| %>
-        <th><%= name %></th>
+      <% %w(Tags Command Description Link User).each do |coloumn| %>
+        <th><%= coloumn %></th>
       <% end %>
       <th></th>
     </tr>
@@ -33,4 +33,4 @@
   </tbody>
 </table>
 
-<%= render 'form' %>
+<%= render 'modal' %>

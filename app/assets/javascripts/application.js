@@ -17,4 +17,7 @@
 //= require twitter/bootstrap
 //= require select2
 //= require select2-full
+//= require trix
+//= require syntax-highlighter-rails/shCore
+//= require syntax-highlighter-rails/shBrushCpp
 //= require_tree .
