@@ -15,5 +15,6 @@
  *= bootstrap.min.css
  *= require select2
  *= require select2-bootstrap
+ *= require trix
  *= require_self
  */

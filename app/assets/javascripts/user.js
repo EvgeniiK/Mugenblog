@@ -10,9 +10,7 @@ $(document).ready(function() {
         $( "#sign-up-form" ).addClass( "hidden" )
         $( "#sign-in-form" ).removeClass( "hidden" )
       }
-
-  })
-
-})
+  });
+});
 
 

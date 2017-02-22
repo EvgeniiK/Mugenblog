@@ -3,32 +3,18 @@
 $(document).ready(function() {
 
   $(".hint-modal").click(function (data){
-    $.get($(this).data('link'), function(data) {
-          $('#modal').html(data.hint).ready(function (){
+    $.ajax({
+      url: $(this).data('link'),
+      method: 'GET',
+      success: function (data) {
+        $('.modal-dialog').html(data).ready(function (){
             $( "#hint_tag_ids" ).select2({
               theme: "bootstrap",
               minimumResultsForSearch: 1
             });
           });
-          $('#modal-form').modal();
-    })
-  })
-
-  $('#main-table').DataTable({
-    columnDefs: [{
-        orderable: false,
-        searchable: false,
-        targets: -1
-    },{
-        orderable: false,
-        searchable: false,
-        targets: -2
-      },{
-        orderable: false,
-        searchable: false,
-        targets: -3
-      }],
-    iDisplayLength: 50
+        $('#modal-form').modal();
+      }
+    });
   });
-
-})
+});

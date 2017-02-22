@@ -1,20 +1,19 @@
 <div class="page-header">
-  <h1> Hints</h1>
   <% if current_user.present? %>
     <button type="button" class="btn btn-primary hint-modal" data-link='<%= new_hint_path %>'>Create new Hint</button>
   <% end %>
 </div>
-<table class="table table-striped table-responsive" id='main-table'>
+<table class="table table-striped table-responsive">
   <thead>
     <tr>
-      <% %w(Tags Command Description Link User).each do |name| %>
-        <th><%= name %></th>
+      <% %w(Tags Command Description Link User).each do |coloumn| %>
+        <th><%= coloumn %></th>
       <% end %>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @hints.each do |hint| %>
+    <% Hint.all.each do |hint| %>
       <tr>
         <td><%= hint.tags.pluck(:name).map(&:inspect).join(', ') %></td>
         <td><%= hint.command %></td>
@@ -33,4 +32,7 @@
   </tbody>
 </table>
 
-<%= render 'form' %>
+<!-- modal -->
+<div id='modal-form' class="modal fade" role="dialog">
+  <div class="modal-dialog"></div>
+</div>

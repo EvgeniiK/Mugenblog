@@ -11,10 +11,12 @@ class Ability
     elsif user.admin?
       can :manage, :all
     else
+      user ||= User.new
       can :read, :all
       can :create, :all
-      can :edit, Hint, :user_id => user.id
-      can :destroy, Hint, :user_id => user.id
+      can :edit, [Hint, Article], user_id: user.id
+      can :update, [Hint, Article], user_id: user.id
+      can :destroy, [Hint, Article], user_id: user.id
     end
     #
     # The first argument to `can` is the action you are giving the user
