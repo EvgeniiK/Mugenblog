@@ -17,4 +17,5 @@
 //= require twitter/bootstrap
 //= require select2
 //= require select2-full
+//= require trix
 //= require_tree .

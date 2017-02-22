@@ -1,12 +1,12 @@
 class HintsController < ApplicationController
   load_and_authorize_resource
   before_action :set_hint, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :create, :show]
+  load_and_authorize_resource
 
   # GET /hints
   # GET /hints.json
   def index
-    @hints = Hint.all.order(created_at: :desc)
+    @hints = Hint.all
   end
 
   # GET /hints/1
@@ -16,23 +16,12 @@ class HintsController < ApplicationController
 
   # GET /hints/new
   def new
-    render json: {
-    hint: render_to_string('hints/_modal',
-                           layout: false,
-                           status: 200,
-                           locals: {hint: Hint.new})
-    }
+    render partial: 'form'
   end
 
   # GET /hints/1/edit
   def edit
-    render json: {
-        hint: render_to_string('hints/_modal',
-                               layout: false,
-                               status: 200,
-                               locals: {hint: params[:id]})
-    }
-    #render json: { report: render_to_string("_form", layout: false, status: 200) }
+    render partial: 'form'
   end
 
   # POST /hints
@@ -42,9 +31,9 @@ class HintsController < ApplicationController
 
     respond_to do |format|
       if @hint.save
-        format.html { redirect_to hints_url,
+        format.html { redirect_to :root,
                       notice: 'Hint was successfully created.' }
-        format.json { render :show, status: :created, location: @hint }
+        format.json { render :root, status: :created, location: @hint }
       else
         format.html { render :new }
         format.json { render json: @hint.errors,
@@ -73,7 +62,7 @@ class HintsController < ApplicationController
   def destroy
     @hint.destroy
     respond_to do |format|
-      format.html { redirect_to hints_url,
+      format.html { redirect_to :root,
                     notice: 'Hint was successfully destroyed.' }
       format.json { head :no_content }
     end
