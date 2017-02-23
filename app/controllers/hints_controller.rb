@@ -35,7 +35,8 @@ class HintsController < ApplicationController
                       notice: 'Hint was successfully created.' }
         format.json { render :root, status: :created, location: @hint }
       else
-        format.html { render :new }
+        flash[:alert] = @hint.errors.full_messages
+        format.html { redirect_to :root }
         format.json { render json: @hint.errors,
                       status: :unprocessable_entity }
       end
@@ -50,7 +51,7 @@ class HintsController < ApplicationController
         format.html { redirect_to :root,
                       notice: 'Hint was successfully updated.' }
       else
-        format.html { render :edit }
+        format.html { redirect_to :root }
         format.json { render json: @hint.errors,
                       status: :unprocessable_entity }
       end
