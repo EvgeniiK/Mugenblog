@@ -1,39 +1,37 @@
+<div class="row">
+  <div class="col-lg-9">
+    <div class="well sidebar-nav" style="text-align: center;">
+      <p style="font-size: medium;"><%= t(:greeting) %></p>
+    </div>
+    <%= bootstrap_flash %>
+  </div>
+  <div class="col-lg-3">
+    <div class="well sidebar-nav">
+      <% if current_user.present? %>
+        <h3><%= "Hello #{current_user.username}" %></h3>
+      <% else %>
+        <span id='sign-in-form'><%= render 'devise/sessions/new' %></span>
+        <span id='sign-up-form' class='hidden'><%= render 'devise/registrations/form' %></span>
+      <% end %>
+      <ul class="nav nav-list">
+
+      </ul>
+    </div><!--/.well -->
+  </div><!--/span-->
+</div><!--/row-->
 <div class="container">
-  <div class="row">
-    <div class="col-lg-9">
-      <div class="well sidebar-nav" style="text-align: center;">
-        <p style="font-size: medium;"><%= t(:greeting) %></p>
-      </div>
-      <%= bootstrap_flash %>
-    </div>
-    <div class="col-lg-3">
-      <div class="well sidebar-nav">
-        <% if current_user.present? %>
-          <h3><%= "Hello #{current_user.username}" %></h3>
-        <% else %>
-          <span id='sign-in-form'><%= render 'devise/sessions/new' %></span>
-          <span id='sign-up-form' class='hidden'><%= render 'devise/registrations/form' %></span>
-        <% end %>
-        <ul class="nav nav-list">
 
-        </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
-  </div><!--/row-->
-  <div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#hints">Hints</a></li>
+    <li><a data-toggle="tab" href="#articles">Articles</a></li>
+  </ul>
 
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#hints">Hints</a></li>
-      <li><a data-toggle="tab" href="#articles">Articles</a></li>
-    </ul>
+  <div class="tab-content">
+  <div id="hints" class="tab-pane fade in active">
+    <%= render 'hints/index' %>
+  </div>
 
-    <div class="tab-content">
-    <div id="hints" class="tab-pane fade in active">
-      <%= render 'hints/index' %>
-    </div>
-
-    <div id="articles" class="tab-pane fade">
-      <%= render 'articles/index' %>
-    </div>
+  <div id="articles" class="tab-pane fade">
+    <%= render 'articles/index' %>
   </div>
 </div>

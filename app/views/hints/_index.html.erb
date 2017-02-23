@@ -1,42 +1,79 @@
-<div class="page-header">
-  <% if current_user.present? %>
-    <button type="button" class="btn btn-primary hint-modal" data-link='<%= new_hint_path %>'>Create new Hint</button>
-  <% end %>
-</div>
-<table class="table table-striped table-responsive">
-  <thead>
-    <tr>
-      <% %w(Tags Command Description Link User).each do |coloumn| %>
-        <th><%= coloumn %></th>
-      <% end %>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% Hint.all.each do |hint| %>
-      <tr>
-        <td>
-          <% hint.tags.pluck(:name).each do |tag| %>
-            <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
-          <% end %>
-        </td>
-        <td><%= hint.command %></td>
-        <td class='word-wrap'><%= hint.description %></td>
-        <td><%= link_to cut_link(hint.link), hint.link, target: 'blank' %></td>
-        <td><%= hint.user.username if hint.user.present? %></td>
-        <td class='right'>
-          <% if current_user.present? && current_user == hint.try(:user) %>
-            <button type="button" class="btn btn-default btn-sm hint-modal" data-link='<%= edit_hint_path(hint) %>'>
-              <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-          <% end %>
-        </td>
-      </tr>
+<section class='hints'>
+  <div class="page-header">
+    <% if current_user.present? %>
+      <button type="button" class="btn btn-primary hint-modal" data-link='<%= new_hint_path %>'>Create new Hint</button>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <div class="hidden-sm hidden-xs">
+    <table class="table table-striped table-responsive">
+      <thead>
+        <tr>
+          <% %w(Tags Command Description Link User).each do |coloumn| %>
+            <th><%= coloumn %></th>
+          <% end %>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @hints.each do |hint| %>
+          <tr>
+            <td>
+              <% hint.tags.pluck(:name).each do |tag| %>
+                <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
+              <% end %>
+            </td>
+            <td><%= hint.command %></td>
+            <td class='word-wrap'><%= hint.description %></td>
+            <td><%= link_to cut_link(hint.link), hint.link, target: 'blank' %></td>
+            <td><%= hint.user.username if hint.user.present? %></td>
+            <td class='right'>
+              <% if current_user.present? && current_user == hint.try(:user) %>
+                <button type="button" class="btn btn-default btn-sm hint-modal" data-link='<%= edit_hint_path(hint) %>'>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!-- modal -->
-<div id='modal-form' class="modal fade" role="dialog">
-  <div class="modal-dialog"></div>
-</div>
+  <!-- For small devices -->
+  <div class="visible-sm visible-xs">
+    <table class="table table-striped table-responsive">
+      <thead>
+        <tr>
+          <% %w(Tags Command Description).each do |coloumn| %>
+            <th><%= coloumn %></th>
+          <% end %>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @hints.each do |hint| %>
+          <tr>
+            <td>
+              <% hint.tags.pluck(:name).each do |tag| %>
+                <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
+              <% end %>
+            </td>
+            <td><%= hint.command %></td>
+            <td class='word-wrap'><%= hint.description %></td>
+            <td class='right'>
+              <% if current_user.present? && current_user == hint.try(:user) %>
+                <button type="button" class="btn btn-default btn-sm hint-modal" data-link='<%= edit_hint_path(hint) %>'>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!-- modal -->
+  <div id='modal-form' class="modal fade" role="dialog">
+    <div class="modal-dialog"></div>
+  </div>
+</section>
