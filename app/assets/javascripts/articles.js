@@ -2,9 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function() {
-
   $( "#article_tag_ids" ).select2({
     theme: "bootstrap",
     minimumResultsForSearch: 1
   });
 });
+
+

@@ -15,7 +15,11 @@
   <tbody>
     <% Hint.all.each do |hint| %>
       <tr>
-        <td><%= hint.tags.pluck(:name).map(&:inspect).join(', ') %></td>
+        <td>
+          <% hint.tags.pluck(:name).each do |tag| %>
+            <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
+          <% end %>
+        </td>
         <td><%= hint.command %></td>
         <td class='word-wrap'><%= hint.description %></td>
         <td><%= link_to cut_link(hint.link), hint.link, target: 'blank' %></td>
