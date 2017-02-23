@@ -40,8 +40,14 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="col-md-2"></div>
-    <div class="col-md-8"><%= yield %></div>
-    <div class="col-md-2"></div>
+    <div class="row">
+        <div class="col-lg-0 col-md-0 col-xl-2"></div>
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-8">
+            <div class="container">
+                <%= yield %>
+            </div>
+        </div>
+        <div class="col-lg-0 col-md-0 col-xl-2"></div>
+    </div>
   </body>
 </html>
