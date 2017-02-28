@@ -20,6 +20,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 
+gem 'mailjet'
+
 # For front-end
   gem "select2-rails"
   gem 'twitter-bootstrap-rails'
