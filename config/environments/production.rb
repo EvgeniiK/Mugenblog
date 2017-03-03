@@ -75,7 +75,7 @@ Rails.application.configure do
       :domain               => "gmail.com",
       :user_name            => ENV.fetch('MAIL_ADDR'),
       :password             => ENV.fetch('MAIL_PASS'),
-      :authentication       => :plain,
+      :authentication       => :plain
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
