@@ -8,6 +8,7 @@ set :rvm_ruby_version, '2.3.1@mugenblog_4.2.6'
 
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml',
+                                                 'config/application.yml',
                                                  'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
                                                'tmp/sockets', 'vendor/bundle',
