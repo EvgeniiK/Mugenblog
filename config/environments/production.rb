@@ -76,7 +76,6 @@ Rails.application.configure do
       :user_name            => ENV.fetch('MAIL_ADDR'),
       :password             => ENV.fetch('MAIL_PASS'),
       :authentication       => :plain,
-      :enable_starttls_auto => true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
