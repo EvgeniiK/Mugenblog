@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 25,
-      :domain               => "mugenblog.ml",
+      :domain               => "gmail.com",
       :user_name            => ENV.fetch('MAIL_ADDR'),
       :password             => ENV.fetch('MAIL_PASS'),
       :authentication       => :plain,
