@@ -64,6 +64,21 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.default_url_options = { host: "mugenblog.ml" }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_options = {reply_to: 'no-reply@mugenblog.ml'}
+  config.action_mailer.default charset: "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 25,
+      :domain               => "mugenblog.ml",
+      :user_name            => ENV.fetch('MAIL_ADDR'),
+      :password             => ENV.fetch('MAIL_PASS'),
+      :authentication       => :plain,
+      :from                 => '"Mugenblog.ml" <no-reply@mugenblog.ml>'
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
