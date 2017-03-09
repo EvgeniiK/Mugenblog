@@ -1,0 +1,2 @@
+$('#article_items').html('<%= escape_javascript render(@articles) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@articles, :params => { :controller => 'articles', :action => 'index'}, :remote => true).to_s) %>');

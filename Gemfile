@@ -9,6 +9,7 @@ gem 'cancancan'
 gem 'capistrano-rails-console'
 gem 'quiet_assets', '~> 1.1'
 gem 'kaminari'
+gem 'therubyracer'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
