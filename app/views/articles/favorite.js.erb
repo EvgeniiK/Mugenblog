@@ -1,0 +1,1 @@
+$('#article_<%= escape_javascript(@article.id.to_s).to_s %>').html('<%= escape_javascript( render 'articles/favorite_buttons', article: @article).to_s %>');

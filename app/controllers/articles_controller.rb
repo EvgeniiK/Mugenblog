@@ -69,14 +69,13 @@ class ArticlesController < ApplicationController
     type = params[:type]
     if type == "favorite"
       current_user.favorites << @article
-      redirect_to :back
-
+      render 'articles/favorite'
     elsif type == "unfavorite"
       current_user.favorites.delete(@article)
-      redirect_to :back
+      render 'articles/favorite'
     else
       # Type missing, nothing happens
-      redirect_to :back
+      render 'articles/favorite'
     end
   end
 

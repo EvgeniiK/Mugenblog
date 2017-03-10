@@ -17,7 +17,7 @@ class Ability
       can :edit, [Hint, Article], user_id: user.id
       can :update, [Hint, Article], user_id: user.id
       can :destroy, [Hint, Article], user_id: user.id
-      can :favorite, [Article], user_id: user.id
+      can :favorite, :all
     end
     #
     # The first argument to `can` is the action you are giving the user
