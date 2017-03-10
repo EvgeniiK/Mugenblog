@@ -38,5 +38,12 @@
         </div>
       </div>
     </div>
+    <div>
+      <% if current_user && current_user.favorites.include?(article) %>
+        <%= link_to 'Unfollow', favorite_article_path(article, type: "unfavorite"), method: :put, class: 'btn-delete-favorite' %>
+      <% elsif current_user %>
+        <%= link_to 'Follow', favorite_article_path(article, type: "favorite"), method: :put, class: 'btn-add-to-favorite' %>
+      <% end %>
+    </div>
   <% end %>
 </section>

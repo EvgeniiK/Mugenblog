@@ -3,7 +3,9 @@ Rails.application.routes.draw do
                                        registrations: 'users/registrations',
                                        sessions: 'users/sessions'
                                      }
-  resources :articles
+  resources :articles do
+    put :favorite, on: :member
+  end
   resources :hints
   root :to => "home#index"
 

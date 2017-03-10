@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   has_many :hint
   has_many :articles
+  has_many :favorite_articles
+  has_many :favorites, through: :favorite_articles, source: :article
 
   enum admin: { god: true, mortal: false }
+
 end

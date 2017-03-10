@@ -62,6 +62,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+  # Add and remove favorite recipes
+  # for current_user
+  def favorite
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @article
+      redirect_to :back
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@article)
+      redirect_to :back
+    else
+      # Type missing, nothing happens
+      redirect_to :back
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
