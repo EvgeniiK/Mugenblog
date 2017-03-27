@@ -9,11 +9,15 @@
 section.articles {
   padding-top: 10px;
 
+  .pagination {
+    margin: 0px;
+  }
+
   .article {
     padding-bottom: 10px;
 
     a:hover {
-      color: black;
+      color: #185680;
       background-color: transparent;
     }
 
@@ -38,14 +42,6 @@ section.articles {
 
     .footer {
       padding: 7px 0px 7px 0px;
-
-      .right{
-        float: right;
-      }
-
-      .left {
-        align-self: flex-end;
-      }
     }
   }
 }
