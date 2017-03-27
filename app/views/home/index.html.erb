@@ -19,19 +19,20 @@
     </div><!--/.well -->
   </div><!--/span-->
 </div><!--/row-->
+<div class="container">
 
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#hints">Hints</a></li>
+    <li><a data-toggle="tab" href="#articles">Articles</a></li>
+  </ul>
 
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#hints">Hints</a></li>
-      <li><a data-toggle="tab" href="#articles">Articles</a></li>
-    </ul>
+  <div class="tab-content">
+    <div id="hints" class="tab-pane fade in active">
+      <%= render 'hints/index' %>
+    </div>
 
-    <div class="tab-content">
-      <div id="hints" class="tab-pane fade in active">
-        <%= render 'hints/index' %>
-      </div>
-
-      <div id="articles" class="tab-pane fade">
-        <%= render 'articles/index' %>
-      </div>
+    <div id="articles" class="tab-pane fade">
+      <%= render 'articles/index' %>
+    </div>
+  </div>
 </div>

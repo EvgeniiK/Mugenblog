@@ -14,9 +14,9 @@ class Ability
       user ||= User.new
       can :read, :all
       can :create, :all
-      can :edit, [Hint, Article], user_id: user.id
-      can :update, [Hint, Article], user_id: user.id
-      can :destroy, [Hint, Article], user_id: user.id
+      can :edit, [Hint, Article, Comment], user_id: user.id
+      can :update, [Hint, Article, Comment], user_id: user.id
+      can :destroy, [Hint, Article, Comment], user_id: user.id
     end
     #
     # The first argument to `can` is the action you are giving the user
