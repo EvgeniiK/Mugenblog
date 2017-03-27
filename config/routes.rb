@@ -3,7 +3,10 @@ Rails.application.routes.draw do
                                        registrations: 'users/registrations',
                                        sessions: 'users/sessions'
                                      }
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
+  resources :comments, only: [:edit, :update, :destroy]
   resources :hints
   root :to => "home#index"
 

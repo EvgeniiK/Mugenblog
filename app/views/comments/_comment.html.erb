@@ -1,0 +1,27 @@
+<%= div_for(comment) do %>
+  <div class='row'>
+    <div class='comment-title'>
+      <div class="small">
+        <strong><%= comment.user.try(:username) %></strong> /
+        <%= time_ago_in_words(comment.created_at) %> /
+        #<u><%= link_to comment.id, comment_path(comment) %></u>
+      </div>
+      <div class='comment-content'>
+        <%= comment.content.html_safe %>
+      </div>
+    </div>
+    <div class="footer">
+          <span class="right">
+            <% if current_user.present? && current_user == comment.try(:user) %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_comment_path(comment), :class => 'btn btn-default btn-xs btn-edit' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                            comment_path(comment),
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-xs btn-danger btn-delete' %>
+            <% end %>
+          </span>
+    </div>
+  </div>
+<% end %>
+
