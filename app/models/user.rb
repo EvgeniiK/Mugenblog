@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :hint
   has_many :articles
+  has_many :comments
 
   enum admin: { god: true, mortal: false }
 end
