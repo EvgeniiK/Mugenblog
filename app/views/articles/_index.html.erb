@@ -1,9 +1,14 @@
 <section class='articles'>
   <%- model_class = Article -%>
-  <div class="page-header">
-    <% if current_user.present? %>
-      <%= link_to 'Create new Article', new_article_path, :class => 'btn btn-primary' %>
-    <% end %>
+  <div class="page-header sides">
+      <div class=left>
+        <% if current_user.present? %>
+          <%= link_to 'Create new Article', new_article_path, :class => 'btn btn-primary left' %>
+        <% end %>
+      </div>
+      <div class='right'>
+        <%= paginate @articles %>
+      </div>
   </div>
   <% @articles.each do |article| %>
     <div class='article'>
@@ -15,7 +20,7 @@
         <div class="col-sm-12">
           <div class='content'>
             <div class='body'><%= article.content.html_safe %></div>
-            <div class="footer">
+            <div class="footer sides">
               <span class="left">
                 <% article.tags.pluck(:name).each do |tag| %>
                   <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
@@ -39,4 +44,9 @@
       </div>
     </div>
   <% end %>
+  <div class='sides'>
+    <div class='right'>
+      <%= paginate @articles %>
+    </div>
+  </div>
 </section>
