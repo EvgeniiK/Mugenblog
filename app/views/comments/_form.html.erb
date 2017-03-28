@@ -1,36 +1,31 @@
-<% set_form_values(action_name) %>
-<%= form_for @comment, url: @action_options[:url_action],
-             html: { class: 'form-horizontal', remote: true} do |f| %>
-
-    <% if @comment.errors.any? %>
-        <div id="error_expl" class="panel panel-danger">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h3>
-          </div>
-          <div class="panel-body">
-            <ul>
-              <% @comment.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
+<%= form_for [@article, @comment], html: { class: 'form-horizontal'} do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class = "comment col-sm-12">
+    <div class="content">
+      <div class="form-group">
+        <div class="col-sm-8">
+          <%= f.trix_editor :content, class: 'content-field comment-editor brush: js' %>
         </div>
-    <% end %>
-    <div class = "comment col-sm-12">
-      <div class="content">
-        <div class="form-group">
-          <div class="col-sm-8">
-            <%= f.trix_editor :content, class: 'content-field comment-editor brush: js' %>
-          </div>
-          <%=f.error_span(:content) %>
-        </div>
-        <div class="form-group">
-          <div class="col-lg-10">
-            <%= f.submit @action_options[:button_value],
-                         :class => 'btn btn-primary btn-sm' %>
-          </div>
+        <%=f.error_span(:content) %>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.submit class: 'btn btn-primary btn-sm', remote: true %>
         </div>
       </div>
     </div>
-
+  </div>
 <% end %>

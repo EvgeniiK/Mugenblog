@@ -3,17 +3,6 @@ class HintsController < ApplicationController
   before_action :set_hint, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
-  # GET /hints
-  # GET /hints.json
-  def index
-    @hints = Hint.all
-  end
-
-  # GET /hints/1
-  # GET /hints/1.json
-  def show
-  end
-
   # GET /hints/new
   def new
     render partial: 'form'

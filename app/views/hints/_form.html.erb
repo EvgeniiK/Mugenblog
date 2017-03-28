@@ -1,5 +1,5 @@
 <div class="modal-content">
-  <%= form_for @hint, :html => { :class => "form-horizontal hint" } do |f| %>
+  <%= form_for @hint, html: { class: "form-horizontal hint" } do |f| %>
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
       <h4 class="modal-title"><%= @hint.id.present? ? 'Edit Hint' : 'Create new Hint' %></h4>

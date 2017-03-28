@@ -2,6 +2,12 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
   load_and_authorize_resource
 
+  def index
+  end
+
+  def new
+  end
+
   # GET /comments/1/edit
   def edit
     render partial: 'comments/form'
@@ -12,13 +18,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.article_id = params[:article_id]
-    respond_to do |format|
-      if @comment.save
-        format.html { render @comment }
-      else
-        format.html { redirect_to @comment.article }
-      end
-    end
+    render :nothing
   end
 
   # PATCH/PUT /comments/1

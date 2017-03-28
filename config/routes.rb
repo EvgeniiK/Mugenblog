@@ -4,10 +4,9 @@ Rails.application.routes.draw do
                                        sessions: 'users/sessions'
                                      }
   resources :articles do
-    resources :comments, only: [:create]
+    resources :comments
   end
-  resources :comments, only: [:edit, :update, :destroy]
-  resources :hints
+  resources :hints, except: [:index, :show]
   root :to => "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

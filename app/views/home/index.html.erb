@@ -8,7 +8,7 @@
   <div class="col-lg-3">
     <div class="well sidebar-nav">
       <% if current_user.present? %>
-        <h3><%= "Hello #{current_user.username}" %></h3>
+        <h3 class='greeting'><%= "Hello #{current_user.username}" %></h3>
       <% else %>
         <span id='sign-in-form'><%= render 'devise/sessions/new' %></span>
         <span id='sign-up-form' class='hidden'><%= render 'devise/registrations/form' %></span>
@@ -29,7 +29,7 @@
 
     <div class="tab-content">
       <div id="hints" class="tab-pane fade in active">
-        <%= render 'hints/index' %>
+        <%= render 'hints/hints' %>
       </div>
 
       <div id="articles" class="tab-pane fade">
