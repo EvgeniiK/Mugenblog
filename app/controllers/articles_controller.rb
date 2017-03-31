@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @comments = @article.comments.all.order(created_at: :asc)
+    # @comments = @article.comments.order(created_at: :desc).page(params[:page]).per(10)
+    @comments = Comment.where(article: @article).order(created_at: :desc)
     @comment = Comment.new
   end
 

@@ -1,26 +1,23 @@
-<%= @comments.each do |comment| %>
-  <div class='row'>
-    <div class='comment-title'>
-      <div class="small">
-        <strong><%= comment.user.try(:username) %></strong> /
-        <%= time_ago_in_words(comment.created_at) %> /
-        #<u><%= link_to comment.id, '#' %></u>
-      </div>
-      <div class='comment-content'>
-        <%= comment.content.html_safe %>
-      </div>
-    </div>
-    <div class="footer">
-          <span class="right">
-            <% if current_user.present? && current_user == comment.try(:user) %>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_article_comment_path(@article, comment), :class => 'btn btn-default btn-xs btn-edit' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        article_comment_path(@article, comment),
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-xs btn-danger btn-delete' %>
-            <% end %>
-          </span>
-    </div>
+<section class="comments">
+  <div class="comment-form">
+    <% if current_user.present? %>
+        <%= render 'comments/form' %>
+    <% else %>
+        <%= link_to 'Please sign in before comment the article', root_path %>
+    <% end %>
   </div>
-<% end %>
+  <p>Comments:</p>
+  <% if @comments.present? %>
+    <div id='comments'>
+      <% @comments.each do |comment| %>
+        <%= render 'comments/comment', comment: comment %>
+      <% end %>
+    </div>
+    <%#= paginate @comments %>
+  <% else %>
+    <span id="no_comments">No comments yet</span>
+  <% end %>
+</section>
+
+
+

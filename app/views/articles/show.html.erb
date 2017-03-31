@@ -8,12 +8,12 @@
         <div class='content'>
           <div class='body'><%= @article.content.html_safe %></div>
           <div class="footer">
-            <span class="left">
+            <div class="left">
               <% @article.tags.pluck(:name).each do |tag| %>
                 <%= link_to tag, "##{tag}", class: "btn btn-default btn-xs" %>
               <% end %>
-            </span>
-            <span class="right">
+            </div>
+            <div class="right">
               <%= @article.user.try(:username) %>
               <% if current_user.present? && current_user == @article.try(:user) %>
                 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -24,11 +24,11 @@
                             :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                             :class => 'btn btn-xs btn-danger' %>
               <% end %>
-            </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<%= render 'comments/index' %>
+<%= render 'comments/comments' %>
