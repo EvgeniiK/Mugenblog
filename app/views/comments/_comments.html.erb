@@ -7,16 +7,16 @@
     <% end %>
   </div>
   <p>Comments:</p>
-  <% if @comments.present? %>
-    <div id='comments'>
-      <% @comments.each do |comment| %>
-        <%= render 'comments/comment', comment: comment %>
-      <% end %>
-    </div>
-    <%#= paginate @comments %>
-  <% else %>
-    <span id="no_comments">No comments yet</span>
-  <% end %>
+  <div id='comments'>
+    <% if @comments.present? %>
+        <% @comments.each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+        <% end %>
+      <%#= paginate @comments %>
+    <% else %>
+      <span id="no-comments">No comments yet</span>
+    <% end %>
+  </div>
 </section>
 
 

@@ -1,15 +1,23 @@
 .sides{
   display: flex;
-}
+  .left {
+    margin-right: auto;
+  }
 
-.left {
-  margin-right: auto;
-}
-
-.right {
-  margin-left: auto;
+  .right {
+    margin-left: auto;
+  }
 }
 
 .greeting {
   margin: 0px;
+}
+
+#wrap {
+  margin-bottom: 70px;
+}
+
+#footer{
+  border-top: 1px solid #e7e7e7;
+  height: 60px;
 }

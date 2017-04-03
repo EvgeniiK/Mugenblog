@@ -1,32 +1,16 @@
 $(document).ready(function() {
 
-    checkPresenceOf('create');
+    checkPresenceOfText('create');
     create();
     destroy();
     edit();
 
-
-    function create(){
-      $('.create-comment').click(function() {
-        $.ajax({
-          type: "POST",
-          url: $(this).data('url'),
-          data: $('form').serializeArray()
-        }).success(function(comment){
-          $('#comments').prepend(comment);
-          $('trix-editor').empty();
-          edit();
-          destroy();
-        });
-      });
-    };
-
-    function checkPresenceOf(action){
-      $('trix-editor.comment-' + action).on('trix-change', function(event) {
+    function checkPresenceOfText(selector){
+      $('trix-editor.comment-' + selector).on('trix-change', function(event) {
         if (strip($(this).val()).length == 0) {
-          $('.' + action + '-comment').attr('disabled','disabled');
+          $('.' + selector + '-comment').attr('disabled','disabled');
         } else {
-          $('.' + action + '-comment').removeAttr('disabled');
+          $('.' + selector + '-comment').removeAttr('disabled');
         }
       });
     };
@@ -37,6 +21,21 @@ $(document).ready(function() {
       return tmp.textContent || tmp.innerText;
     }
 
+    function create(){
+      $('.create-comment').click(function() {
+        $.ajax({
+          type: "POST",
+          url: $(this).data('url'),
+          data: $('form').serializeArray()
+        }).success(function(comment){
+          $('#comments').prepend(comment);
+          $('trix-editor').empty();
+          $('#no-comments').remove();
+          edit();
+          destroy();
+        });
+      });
+    };
 
     function update(id){
       $('.update-comment').click(function() {
@@ -59,10 +58,16 @@ $(document).ready(function() {
         }).success(function(form){
           $('#' + id).html(form);
           update(id);
-          checkPresenceOf('update');
+          checkPresenceOfText('update');
         });
       });
     };
+
+    function checkLastComment(){
+      if (!$('#comments').html().includes('div')) {
+        $('#comments').html('<span id="no-comments">No comments yet</span>')
+      }
+    }
 
     function destroy(){
       $('.btn-delete').click(function(event) {
@@ -72,7 +77,8 @@ $(document).ready(function() {
               type: "DELETE",
               url: $(this).attr('href'),
           }).success(function(html){
-              $('#' + id).fadeOut('slow');
+              $('#' + id).remove();
+              checkLastComment();
           });
       });
     };

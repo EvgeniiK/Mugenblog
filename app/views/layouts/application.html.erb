@@ -38,16 +38,19 @@
     <![endif]-->
 
   </head>
+  <%= render 'layouts/header' %>
   <body>
-    <%= render 'layouts/header' %>
-            <div class="container">
-    <div class="row">
-        <div class="col-lg-0 col-md-0 col-xl-2"></div>
-        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-8">
-                <%= yield %>
+    <div id='wrap'>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-0 col-md-0 col-xl-2"></div>
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xl-8">
+            <%= yield %>
+          </div>
+          <div class="col-lg-0 col-md-0 col-xl-2"></div>
         </div>
-        <div class="col-lg-0 col-md-0 col-xl-2"></div>
+      </div>
     </div>
-            </div>
   </body>
+  <%= render 'layouts/footer' %>
 </html>
