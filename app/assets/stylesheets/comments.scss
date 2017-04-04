@@ -12,7 +12,13 @@ section.comments{
     padding-top: 20px;
   }
 
+  .comment.comment-removal {
+    max-height: 0;
+    transition: max-height 1s ease-out;
+    overflow: hidden;
+  }
   .comment {
+    max-height: 500px;
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -28,6 +34,7 @@ section.comments{
       padding-left: 10px;
     }
     .body {
+      overflow:auto;
       padding: 15px 0px 15px 0px;
       border-bottom: 1px solid #e0dfdf;
     }
