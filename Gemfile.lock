@@ -234,6 +234,7 @@ DEPENDENCIES
   capistrano-rails-console
   capistrano-rvm
   capistrano3-unicorn
+  coderay
   devise
   figaro
   jquery-datatables-rails

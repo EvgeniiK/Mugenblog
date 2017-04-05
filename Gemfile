@@ -25,6 +25,7 @@ gem 'figaro'
   gem 'twitter-bootstrap-rails'
   gem 'jquery-rails'
   gem 'jquery-datatables-rails'
+  gem 'coderay'
 
   # text-editor
   gem 'trix'

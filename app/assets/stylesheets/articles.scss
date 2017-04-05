@@ -42,10 +42,15 @@ section.articles {
 
     .body {
       border-bottom: 1px solid #e0dfdf;
+      padding-bottom: 20px;
     }
 
     .footer {
       padding: 7px 0px 7px 0px;
     }
+  }
+  pre {
+    background-color: #edeae7;
+    color: black;
   }
 }

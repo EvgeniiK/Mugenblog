@@ -6,7 +6,7 @@
       </div>
       <div class="col-sm-12">
         <div class='content'>
-          <div class='body'><%= @article.content.html_safe %></div>
+          <div class='body'><%= coderay(@article.content).html_safe %></div>
           <div class="footer">
             <div class="left">
               <% @article.tags.pluck(:name).each do |tag| %>
