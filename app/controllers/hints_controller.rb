@@ -1,7 +1,6 @@
 class HintsController < ApplicationController
   load_and_authorize_resource
   before_action :set_hint, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
 
   # GET /hints/new
   def new
