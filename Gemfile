@@ -20,6 +20,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 
+# A framework for creating flexible, powerful admin dashboards in Rails https://github.com/thoughtbot/administrate
+gem 'administrate'
+
 # For front-end
   gem "select2-rails"
   gem 'twitter-bootstrap-rails'
