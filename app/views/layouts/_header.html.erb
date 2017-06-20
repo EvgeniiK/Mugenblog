@@ -9,6 +9,7 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav" style="float: right;">
         <% if current_user.present? %>
+          <li><%= link_to 'Technology stack', technology_stacks_path %></li>
           <li><%= link_to 'sign_out', destroy_user_session_path, method: :delete %></li>
         <% else %>
         <% end %>

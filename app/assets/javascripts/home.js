@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('table').DataTable({
+  $('table.data-table').DataTable({
     columnDefs: [{
         orderable: false,
         searchable: false,
@@ -19,7 +19,7 @@ $(document).ready(function() {
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     // save the latest tab; use cookies if you like 'em better:
     localStorage.setItem('lastTab', $(this).attr('href'));
-    window.location.hash = $(e.target).attr("href").substr(1);
+    // window.location.hash = $(e.target).attr("href").substr(1);
   });
 
   // go to the latest tab, if it exists:

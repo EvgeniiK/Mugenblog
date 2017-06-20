@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
-resources :articles
-resources :comments
-resources :hints
-resources :tags
+    resources :articles
+    resources :comments
+    resources :hints
+    resources :tags
+    resources :technology_stacks
 
     root to: "users#index"
   end
@@ -16,6 +17,8 @@ resources :tags
   resources :articles do
     resources :comments
   end
+
+  resources :technology_stacks
   resources :hints, except: [:index, :show]
   root :to => "home#index"
 

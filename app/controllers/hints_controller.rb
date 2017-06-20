@@ -65,6 +65,7 @@ class HintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hint_params
-      params.require(:hint).permit(:theme, :command, :description, :link, {tag_ids: []}).merge(user: current_user)
+      params.require(:hint).permit(:theme, :command, :description, :link,
+                                   tag_ids: []).merge(user: current_user)
     end
 end
